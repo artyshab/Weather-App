@@ -205,7 +205,7 @@ p {
     }
 
     .weather-forecast {
-        display: none;
+        
         width: 400px !important;
         transform: translateY(30px);
         margin-bottom: 2rem;
