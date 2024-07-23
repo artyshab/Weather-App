@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="weather-container">
+      <h2>Weather App</h2>
+      <div class="search-box">
+        <div class="first-row">
+        <input type="text" id="search-input" placeholder="Enter city name" />
+        <button id="search-button">Search</button>
+      </div>
+      <div class="second-row">
+        <input type="text" id="days" placeholder="Enter number of days" />
+      </div>
+      </div>
+      <div class="weather-info">
+        <h3 id="location"></h3>
+        <p id="temperature"></p>
+        <p id="time"></p>
+        <p id="feelslike"></p>
+        <p id="description"></p>
+        <img id="icon" src="" alt="Weather Icon" />
+      </div>
+    </div>
+
+    <div class="weather-forecast">
+        <h1>Today's forecast</h1>
+      <div class="weather-times">
+       
+        </div>
+        <img src="./assets/left-arrow.svg" class="show-less-btn" alt="Left Arrow">
+        <img src="./assets/right-arrow.svg" class="show-more-btn" alt="Right Arrow">
+      </div>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="script.js" async defer></script>
+  </body>
+</html>

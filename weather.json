@@ -1,0 +1,35 @@
+{
+  "coord": { "lon": 21.4333, "lat": 42 },
+  "weather": [
+    { "id": 801, "main": "Clouds", "description": "few clouds", "icon": "02d" }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 308.97,
+    "feels_like": 311.28,
+    "temp_min": 308.97,
+    "temp_max": 308.97,
+    "pressure": 1015,
+    "humidity": 38,
+    "sea_level": 1015,
+    "grnd_level": 964
+  },
+  "visibility": 10000,
+  "wind": { "speed": 2.06, "deg": 0 },
+  "clouds": { "all": 20 },
+  "dt": 1721294966,
+  "sys": {
+    "type": 1,
+    "id": 7023,
+    "country": "MK",
+    "sunrise": 1721272470,
+    "sunset": 1721325968
+  },
+  "timezone": 7200,
+  "id": 785842,
+  "name": "Skopje",
+  "cod": 200
+}
+
+
+forecastElement.src = "http://openweathermap.org/img/w/" + iconCode + ".png";

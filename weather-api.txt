@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="weather-container">
+        <h2>Weather App</h2>
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="Enter city name">
+            <button id="search-button">Search</button>
+        </div>
+        <div class="weather-info">
+            <h3 id="location"></h3>
+            <p id="temperature"></p>
+            <p id="description"></p>
+            <img id="icon" src="" alt="Weather Icon">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+//////////////////////////////////////////////////////////////
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.weather-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+.search-box {
+    margin-bottom: 20px;
+}
+
+.search-box input[type=text] {
+    padding: 8px;
+    width: 200px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-box button {
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.weather-info {
+    margin-top: 20px;
+}
+
+#icon {
+    width: 50px;
+    height: 50px;
+}
+/////////////////////////////////////////////////////////////////////////////
+const apiKey = 'YOUR_API_KEY'; // Replace with your OpenWeatherMap API key
+
+const searchButton = document.getElementById('search-button');
+const searchInput = document.getElementById('search-input');
+const locationElement = document.getElementById('location');
+const temperatureElement = document.getElementById('temperature');
+const descriptionElement = document.getElementById('description');
+const iconElement = document.getElementById('icon');
+
+searchButton.addEventListener('click', () => {
+    const city = searchInput.value;
+    const apiEndpoint = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    axios.get(apiEndpoint)
+        .then(response => {
+            const data = response.data;
+            locationElement.textContent = data.name;
+            temperatureElement.textContent = `${data.main.temp} °C`;
+            descriptionElement.textContent = data.weather[0].description;
+            iconElement.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+        })
+        .catch(error => {
+            console.log(error);
+            alert('Error fetching weather data');
+        });
+});
+
+
+////////////////////////////////////////////////////////////////////////////////////
+CREATE AND APPEND ELEMENTS DYNAMICALLY USING JAVASCRIPT
+
+// Assuming you have a reference to the <div class="time">
+const timeDiv = document.querySelector('.time');
+
+// Create <p> for time
+const timeP = document.createElement('p');
+timeP.textContent = '15:00 AM';
+
+// Create <img> tag
+const img = document.createElement('img');
+img.setAttribute('src', 'url_to_image');
+img.setAttribute('alt', 'image description');
+img.setAttribute('id', 'forecast-el-2');
+
+// Create <p> for temperature
+const tempP = document.createElement('p');
+tempP.textContent = '25deg';
+
+// Append the created elements to the <div class="time">
+timeDiv.appendChild(timeP);
+timeDiv.appendChild(img);
+timeDiv.appendChild(tempP);
+
