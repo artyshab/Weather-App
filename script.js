@@ -21,9 +21,7 @@ searchButton.addEventListener("click", () => {
 
   weatherContainer.classList.add("move");
 
-  axios
-    .get(apiEndpoint)
-    .then((response) => {
+  axios.get(apiEndpoint).then((response) => {
       const data = response.data;
       const weatherInfo = data.list[0].weather[0].main;
       const iconCode = data.list[0].weather[0].icon;
